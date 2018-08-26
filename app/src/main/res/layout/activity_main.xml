@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/card_root_item_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:clipChildren="false"
+    tools:context=".MainActivity">
+
+    <!--内容-->
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clipToPadding="false"
+        android:clipChildren="false"
+        android:minHeight="400dp"
+        android:clickable="true"
+        android:background="@color/white"
+        android:layout_marginBottom="128dp"
+        android:layout_marginTop="82dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:cardElevation="1dp"
+        app:cardCornerRadius="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="400dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:orientation="vertical">
+
+            <!--作者信息、标题-->
+            <include
+                android:id="@+id/author_title_layout"
+                layout="@layout/home_flip_card_item_author_title_layout" />
+            <!--内容-->
+            <LinearLayout
+                android:id="@+id/top_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/author_title_layout"
+                android:layout_marginBottom="64dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginEnd="23dp"
+                android:orientation="vertical">
+                <!--内容-->
+                <TextView
+                    android:id="@+id/card_item_text_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="5dp"
+                    android:maxLines="8"
+                    android:ellipsize="end"
+                    android:text=""
+                    android:layout_marginTop="@dimen/home_flip_content_margin_top_10dp"
+                    android:textSize="@dimen/app_text_size_16sp"
+                    android:textColor="@color/app_text_color_8E8E93"/>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+<!--点赞喜欢-->
+<LinearLayout
+    android:id="@+id/like_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="18dp"
+    android:layout_marginEnd="32dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginBottom="12dp"
+    android:gravity="center"
+    android:layout_gravity="bottom"
+    android:clipToPadding="false"
+    android:clipChildren="false">
+    <TextView
+        android:id="@+id/like_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:visibility="invisible"
+        android:layout_gravity="bottom"
+        android:gravity="end"
+        android:layout_marginTop="10dp"
+        android:text="@string/home_flip_like_text"
+        android:textSize="@dimen/app_text_size_14sp"
+        android:textColor="#99FFFFFF"/>
+    <com.meiqu.wehere.home_flip.tools.FlowLikeView
+        android:id="@+id/flowLikeView"
+        android:layout_width="75dp"
+        android:layout_height="300dp">
+
+        <ImageView
+            android:id="@+id/like_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minHeight="47dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/home_flip_like_icon"
+            android:includeFontPadding="false" />
+    </com.meiqu.wehere.home_flip.tools.FlowLikeView>
+
+    <TextView
+        android:id="@+id/like_count_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="bottom"
+        android:gravity="start"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/app_text_size_13sp"
+        android:textColor="@color/app_text_color_CCFFFFFF"/>
+</LinearLayout>
+<!--滚动回复的文字-->
+<RelativeLayout
+    android:id="@+id/reply_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_marginTop="18dp"
+    android:layout_marginBottom="70dp"
+    android:layout_marginStart="32dp"
+    android:layout_marginEnd="32dp"
+    android:background="@drawable/home_flip_item_newest_post_shape">
+    <ImageView
+        android:id="@+id/reply_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:src="@drawable/home_flip_repley_icon"
+        />
+    <com.meiqu.wehere.ui.widget.MarqueeTextView
+        android:id="@+id/post_content_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/reply_count_tv"
+        android:layout_marginStart="12dp"
+        android:gravity="start"
+        android:text=""
+        android:textSize="@dimen/app_text_size_16sp"
+        android:textColor="@color/white"
+        />
+</RelativeLayout>
+</FrameLayout>
