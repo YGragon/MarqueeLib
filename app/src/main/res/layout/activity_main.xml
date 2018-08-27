@@ -1,53 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/card_root_item_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:clipToPadding="false"
-    android:clipChildren="false"
+    android:orientation="vertical"
     android:background="@color/colorPrimary"
     tools:context=".MainActivity">
 
 
-
-    <!--点赞喜欢-->
-    <LinearLayout
-        android:id="@+id/like_layout"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="12dp"
-        android:gravity="center"
-        android:layout_gravity="bottom"
-        android:clipToPadding="false"
-        android:clipChildren="false">
-
-        <Button
-            android:id="@+id/btn_click"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:minHeight="47dp"
-            android:text="点击我试试看~"
-            />
-    </LinearLayout>
-    <!--滚动回复的文字-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        android:layout_height="wrap_content">
         <com.dong.marqueelib.MarqueeTextviewNofocus
             android:id="@+id/tv_marquee"
             android:layout_width="match_parent"
-            android:layout_height="44dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
-            android:gravity="center"
+            android:layout_marginEnd="12dp"
+            android:layout_marginTop="20dp"
             android:textSize="16sp"
-            android:textColor="#FFFFFF"
             />
-    </RelativeLayout>
-</FrameLayout>
+
+        <com.dong.demo.FlowLikeView
+            android:id="@+id/flowLikeView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center">
+
+            <Button
+                android:id="@+id/btn_click"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_alignParentBottom="true"
+                android:text="点击我不抢占焦点的哦~"
+                />
+        </com.dong.demo.FlowLikeView>
+    </FrameLayout>
+
+</LinearLayout>
